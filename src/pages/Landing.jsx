@@ -175,54 +175,54 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* Video Onboarding Section - 3 Quick Steps */}
-      <section className="py-16 bg-gradient-to-br from-gray-50 to-indigo-50">
+      {/* Video Onboarding Section - 3 Quick Steps (Vertical Videos) */}
+      <section className="py-16 lg:py-20 bg-gradient-to-br from-gray-50 to-indigo-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Attention-grabbing header */}
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-indigo-100 to-purple-100 px-6 py-3 rounded-full mb-4">
+          <div className="text-center mb-12 lg:mb-16">
+            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-indigo-100 to-purple-100 px-6 py-3 rounded-full mb-4 shadow-md">
               <Camera className="w-5 h-5 text-indigo-600 animate-pulse" />
               <span className="text-indigo-700 font-bold uppercase text-sm tracking-wide">
                 👋 New Here? Quick Start Guide!
               </span>
             </div>
-            <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 px-4">
               Get Started in{" "}
               <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
                 3 Easy Steps
               </span>
             </h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto px-4">
               Watch these quick 1-minute videos to create your shop and start selling today
             </p>
           </div>
 
-          {/* 3 Video Cards Grid */}
-          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          {/* 3 Video Cards Grid - Optimized for 9:16 vertical videos */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
             
             {/* Step 1 Video */}
-            <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+            <div className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group transform hover:-translate-y-2">
               {/* Step Badge */}
-              <div className="bg-gradient-to-r from-indigo-500 to-indigo-600 px-6 py-4">
+              <div className="bg-gradient-to-r from-indigo-500 to-indigo-600 px-6 py-5">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                      <span className="text-indigo-600 font-bold text-lg">1</span>
+                    <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg">
+                      <span className="text-indigo-600 font-bold text-xl">1</span>
                     </div>
                     <div>
-                      <p className="text-white text-xs font-medium opacity-90">STEP 1</p>
-                      <h3 className="text-white font-bold text-lg">Sign Up</h3>
+                      <p className="text-white text-xs font-semibold opacity-90 tracking-wider">STEP 1</p>
+                      <h3 className="text-white font-bold text-xl">Sign Up</h3>
                     </div>
                   </div>
-                  <Users className="w-8 h-8 text-white opacity-80" />
+                  <Users className="w-9 h-9 text-white opacity-80" />
                 </div>
               </div>
 
-              {/* Video Container */}
-              <div className="relative bg-black aspect-video">
+              {/* Video Container - 9:16 aspect ratio with max height */}
+              <div className="relative bg-gradient-to-br from-indigo-900 to-black" style={{ aspectRatio: '9/16', maxHeight: '600px' }}>
                 <iframe
-                  className="absolute inset-0 w-full h-full"
-                  src="https://www.youtube.com/embed/SB6XU_QNiU8?rel=0"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  src="https://www.youtube.com/embed/Hud8kGlLWmQ?rel=0"
                   title="Step 1: Sign up & create your profile"
                   frameBorder="0"
                   allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -231,42 +231,47 @@ export default function Landing() {
               </div>
 
               {/* Description */}
-              <div className="p-6">
-                <h4 className="font-bold text-gray-900 text-lg mb-2">
+              <div className="p-6 lg:p-8">
+                <h4 className="font-bold text-gray-900 text-xl mb-3">
                   Create Your Profile
                 </h4>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-gray-600 text-base leading-relaxed mb-4">
                   Learn how to sign up and set up your seller profile in under 1 minute
                 </p>
-                <div className="mt-4 flex items-center text-indigo-600 text-sm font-semibold">
-                  <span>⏱️ Less than 1 min</span>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center text-indigo-600 text-sm font-bold bg-indigo-50 px-4 py-2 rounded-full">
+                    <span>⏱️ &lt; 1 min</span>
+                  </div>
+                  <div className="text-gray-400 text-xs font-medium">
+                    Mobile optimized
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Step 2 Video */}
-            <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+            <div className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group transform hover:-translate-y-2">
               {/* Step Badge */}
-              <div className="bg-gradient-to-r from-purple-500 to-purple-600 px-6 py-4">
+              <div className="bg-gradient-to-r from-purple-500 to-purple-600 px-6 py-5">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                      <span className="text-purple-600 font-bold text-lg">2</span>
+                    <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg">
+                      <span className="text-purple-600 font-bold text-xl">2</span>
                     </div>
                     <div>
-                      <p className="text-white text-xs font-medium opacity-90">STEP 2</p>
-                      <h3 className="text-white font-bold text-lg">Add Products</h3>
+                      <p className="text-white text-xs font-semibold opacity-90 tracking-wider">STEP 2</p>
+                      <h3 className="text-white font-bold text-xl">Add Products</h3>
                     </div>
                   </div>
-                  <Camera className="w-8 h-8 text-white opacity-80" />
+                  <Camera className="w-9 h-9 text-white opacity-80" />
                 </div>
               </div>
 
-              {/* Video Container */}
-              <div className="relative bg-black aspect-video">
+              {/* Video Container - 9:16 aspect ratio with max height */}
+              <div className="relative bg-gradient-to-br from-purple-900 to-black" style={{ aspectRatio: '9/16', maxHeight: '600px' }}>
                 <iframe
-                  className="absolute inset-0 w-full h-full"
-                  src="https://www.youtube.com/embed/Z0FLJIMrUNw?rel=0"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  src="https://www.youtube.com/embed/-3jzpMnqphQ?rel=0"
                   title="Step 2: Add your products with photos"
                   frameBorder="0"
                   allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -275,42 +280,47 @@ export default function Landing() {
               </div>
 
               {/* Description */}
-              <div className="p-6">
-                <h4 className="font-bold text-gray-900 text-lg mb-2">
+              <div className="p-6 lg:p-8">
+                <h4 className="font-bold text-gray-900 text-xl mb-3">
                   Upload Your Products
                 </h4>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-gray-600 text-base leading-relaxed mb-4">
                   See how easy it is to add photos, prices, and descriptions to your products
                 </p>
-                <div className="mt-4 flex items-center text-purple-600 text-sm font-semibold">
-                  <span>⏱️ Less than 1 min</span>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center text-purple-600 text-sm font-bold bg-purple-50 px-4 py-2 rounded-full">
+                    <span>⏱️ &lt; 1 min</span>
+                  </div>
+                  <div className="text-gray-400 text-xs font-medium">
+                    Mobile optimized
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Step 3 Video */}
-            <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+            <div className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group transform hover:-translate-y-2 sm:col-span-2 lg:col-span-1 sm:max-w-md sm:mx-auto lg:max-w-none">
               {/* Step Badge */}
-              <div className="bg-gradient-to-r from-green-500 to-green-600 px-6 py-4">
+              <div className="bg-gradient-to-r from-green-500 to-green-600 px-6 py-5">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                      <span className="text-green-600 font-bold text-lg">3</span>
+                    <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg">
+                      <span className="text-green-600 font-bold text-xl">3</span>
                     </div>
                     <div>
-                      <p className="text-white text-xs font-medium opacity-90">STEP 3</p>
-                      <h3 className="text-white font-bold text-lg">Share & Sell</h3>
+                      <p className="text-white text-xs font-semibold opacity-90 tracking-wider">STEP 3</p>
+                      <h3 className="text-white font-bold text-xl">Share & Sell</h3>
                     </div>
                   </div>
-                  <Share2 className="w-8 h-8 text-white opacity-80" />
+                  <Share2 className="w-9 h-9 text-white opacity-80" />
                 </div>
               </div>
 
-              {/* Video Container */}
-              <div className="relative bg-black aspect-video">
+              {/* Video Container - 9:16 aspect ratio with max height */}
+              <div className="relative bg-gradient-to-br from-green-900 to-black" style={{ aspectRatio: '9/16', maxHeight: '600px' }}>
                 <iframe
-                  className="absolute inset-0 w-full h-full"
-                  src="https://www.youtube.com/embed/F2Bdzun46Go?rel=0"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  src="https://www.youtube.com/embed/h5grgFTO7PA?rel=0"
                   title="Step 3: Share your shop & start selling"
                   frameBorder="0"
                   allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -319,15 +329,20 @@ export default function Landing() {
               </div>
 
               {/* Description */}
-              <div className="p-6">
-                <h4 className="font-bold text-gray-900 text-lg mb-2">
+              <div className="p-6 lg:p-8">
+                <h4 className="font-bold text-gray-900 text-xl mb-3">
                   Start Getting Customers
                 </h4>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-gray-600 text-base leading-relaxed mb-4">
                   Discover how to share your shop link and connect with buyers on WhatsApp
                 </p>
-                <div className="mt-4 flex items-center text-green-600 text-sm font-semibold">
-                  <span>⏱️ Less than 1 min</span>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center text-green-600 text-sm font-bold bg-green-50 px-4 py-2 rounded-full">
+                    <span>⏱️ &lt; 1 min</span>
+                  </div>
+                  <div className="text-gray-400 text-xs font-medium">
+                    Mobile optimized
+                  </div>
                 </div>
               </div>
             </div>
@@ -335,17 +350,18 @@ export default function Landing() {
           </div>
 
           {/* CTA Below Videos */}
-          <div className="mt-12 text-center">
-            <p className="text-gray-600 mb-6 text-lg">
+          <div className="mt-12 lg:mt-16 text-center">
+            <p className="text-gray-600 mb-6 text-lg lg:text-xl font-medium">
               Ready to start your journey?
             </p>
             <Link
               to="/signup"
-              className="inline-flex items-center space-x-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-indigo-700 hover:to-purple-700 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
+              className="inline-flex items-center space-x-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 lg:px-10 py-4 lg:py-5 rounded-xl font-bold text-lg hover:from-indigo-700 hover:to-purple-700 transition-all transform hover:scale-105 shadow-xl hover:shadow-2xl"
             >
               <span>Create My Free Shop Now</span>
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-6 h-6" />
             </Link>
+            <p className="text-gray-500 text-sm mt-4">No credit card required • Free forever</p>
           </div>
         </div>
       </section>
