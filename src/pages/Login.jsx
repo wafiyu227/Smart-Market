@@ -26,60 +26,74 @@ export default function Login() {
     e.preventDefault();
     setLoading(true);
     setMessage({ type: "", text: "" });
-
+  
     try {
-      // Step 1: Sign in with Supabase Auth
+      // Step 1: Sign in user
       const { data: authData, error: authError } =
         await supabase.auth.signInWithPassword({
           email: formData.email,
           password: formData.password,
         });
-
+  
       if (authError) throw authError;
-
-      // Step 2: Try to get user profile (optional - don't fail if it doesn't exist)
+  
+      const user = authData.user;
+  
+      // Step 2: Check if user is admin
+      const { data: adminData } = await supabase
+        .from("admin_users")
+        .select("*")
+        .eq("user_id", user.id)
+        .single();
+  
+      // Step 3: Ensure profile exists
       const { data: profileData, error: profileError } = await supabase
         .from("profiles")
         .select("*")
-        .eq("id", authData.user.id)
-        .maybeSingle(); // Use maybeSingle() instead of single()
-
-      // If profile doesn't exist, create it
+        .eq("id", user.id)
+        .maybeSingle();
+  
       if (!profileData && !profileError) {
-        const { error: insertError } = await supabase
-          .from("profiles")
-          .insert({
-            id: authData.user.id,
-            name: authData.user.user_metadata?.full_name || authData.user.email?.split('@')[0],
-            phone: authData.user.user_metadata?.phone || null,
-          });
-
+        const { error: insertError } = await supabase.from("profiles").insert({
+          id: user.id,
+          name:
+            user.user_metadata?.full_name ||
+            user.email?.split("@")[0],
+          phone: user.user_metadata?.phone || null,
+        });
+  
         if (insertError) {
           console.error("Error creating profile:", insertError);
-          // Don't fail login if profile creation fails
         }
       }
-
+  
       setMessage({
         type: "success",
         text: "🎉 Welcome back! Redirecting...",
       });
-
-      // Navigate immediately without setTimeout
-      window.location.href = "/home";
+  
+      // Step 4: Redirect based on role
+      if (adminData) {
+        window.location.href = "/admin";
+      } else {
+        window.location.href = "/home";
+      }
     } catch (error) {
       console.error("Login error:", error);
-      
+  
       let errorMessage = "Something went wrong. Please try again.";
-      
+  
       if (error.message?.includes("Invalid login credentials")) {
-        errorMessage = "Invalid email or password. Please check your credentials.";
+        errorMessage =
+          "Invalid email or password. Please check your credentials.";
       } else if (error.message?.includes("Email not confirmed")) {
-        errorMessage = "Please verify your email address before signing in.";
+        errorMessage =
+          "Please verify your email address before signing in.";
       } else if (error.message?.includes("User not found")) {
-        errorMessage = "No account found with this email. Please sign up first.";
+        errorMessage =
+          "No account found with this email. Please sign up first.";
       }
-
+  
       setMessage({
         type: "error",
         text: errorMessage,
@@ -88,6 +102,7 @@ export default function Login() {
       setLoading(false);
     }
   };
+  
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex items-center justify-center p-4">

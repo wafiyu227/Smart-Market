@@ -6,6 +6,13 @@ import {
   Navigate,
 } from "react-router-dom";
 
+import AdminProtectedRoute from "./src/components/AdminProtectedRoute";
+import AdminDashboardLayout from "./src/components/AdminDashboardLayout";
+import AdminDashboard from "./src/pages/AdminDashboard";
+import AdminUsers from "./src/pages/admin/AdminUsers";
+import AdminReports from "./src/pages/admin/AdminReports";
+import AdminShops from "./src/pages/admin/AdminShops";
+
 // Pages
 import Login from "./src/pages/Login";
 import Signup from "./src/pages/Signup";
@@ -50,6 +57,20 @@ const AppRoutes = () => {
         <Route path="/upgrade" element={<UpgradeToProPage />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
+
+        <Route
+  path="/admin"
+  element={
+    <AdminProtectedRoute>
+      <AdminDashboardLayout />
+    </AdminProtectedRoute>
+  }
+>
+  <Route index element={<AdminDashboard />} />
+  <Route path="users" element={<AdminUsers />} />
+  <Route path="reports" element={<AdminReports />} />
+  <Route path="shops" element={<AdminShops />} />
+</Route>
 
         {/* Protected Routes */}
         <Route
