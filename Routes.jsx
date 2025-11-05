@@ -12,6 +12,8 @@ import AdminDashboard from "./src/pages/AdminDashboard";
 import AdminUsers from "./src/pages/admin/AdminUsers";
 import AdminReports from "./src/pages/admin/AdminReports";
 import AdminShops from "./src/pages/admin/AdminShops";
+import AdminAnalytics from "./src/pages/admin/AdminAnalytics";
+import AdminSettings from "./src/pages/admin/AdminSettings";
 
 // Pages
 import Login from "./src/pages/Login";
@@ -59,18 +61,20 @@ const AppRoutes = () => {
         <Route path="/terms" element={<TermsOfService />} />
 
         <Route
-  path="/admin"
-  element={
-    <AdminProtectedRoute>
-      <AdminDashboardLayout />
-    </AdminProtectedRoute>
-  }
->
-  <Route index element={<AdminDashboard />} />
-  <Route path="users" element={<AdminUsers />} />
-  <Route path="reports" element={<AdminReports />} />
-  <Route path="shops" element={<AdminShops />} />
-</Route>
+          path="/admin"
+          element={
+            <AdminProtectedRoute>
+              <AdminDashboardLayout />
+            </AdminProtectedRoute>
+          }
+        >
+          <Route index element={<AdminDashboard />} />
+          <Route path="users" element={<AdminUsers />} />
+          <Route path="reports" element={<AdminReports />} />
+          <Route path="shops" element={<AdminShops />} />
+          <Route path="analytics" element={<AdminAnalytics />} />
+          <Route path="settings" element={<AdminSettings />} />
+        </Route>
 
         {/* Protected Routes */}
         <Route
