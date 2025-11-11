@@ -285,10 +285,10 @@ export default function ShopProfile() {
     }
 
     const phone = shop.whatsapp_number.replace(/[^0-9]/g, "");
-    let message = `Hi! I'm interested in products from your shop *${shop.name}*`;
+    let message = `Hi! I'm interested in products from your shop *${shop.name}* on Smart Market`;
 
     if (productName) {
-      message = `Hi! I'm interested in *${productName}* from your shop *${shop.name}*`;
+      message = `Hi! I'm interested in *${productName}* from your shop *${shop.name} on Smart Market*`;
     }
 
     const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
