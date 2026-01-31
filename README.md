@@ -20,7 +20,7 @@ The platform focuses on simplicity, accessibility, and real-world usability for 
 - Git & GitHub
 
 ## Live Demo
-🔗 https://your-smart-market-link.com
+🔗 https://smart-market-gamma.vercel.app/
 
 ## Screenshots
 (Add screenshots of homepage, listings, and dashboard)
