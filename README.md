@@ -22,12 +22,9 @@ The platform focuses on simplicity, accessibility, and real-world usability for 
 ## Live Demo
 🔗 https://smart-market-gamma.vercel.app/
 
-## Screenshots
-(Add screenshots of homepage, listings, and dashboard)
-
 ## Setup Instructions
 1. Clone the repository  
-   `git clone https://github.com/yourusername/smart-market.git`
+   `git clone https://github.com/wafiyu227/smart-market.git`
 2. Install dependencies  
    `npm install`
 3. Configure environment variables
