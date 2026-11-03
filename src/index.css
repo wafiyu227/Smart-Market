@@ -1,54 +1,98 @@
-
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* @font-face {
-  font-family: 'poppins';
-  src: url('./assets/fonts/Poppins/Poppins-Regular.ttf');
-} */
-:root{
-  /* colors */
-  --primaryColor:orangered;
-  --secondaryColor:rgb(121, 121, 216);
-  --greyColor:#eee;
-
-  /* Font and Typography */
-  --normalFontSize:.9em;
-  --headingFontSize:1em;
+:root {
+  color-scheme: light;
+  --forest: #183d32;
+  --ivory: #f6f1e7;
+  --terracotta: #c96f4a;
+  --charcoal: #252923;
+  --sage: #788477;
+  --sage-ink: #596657;
+  --sandstone: #e7dfd0;
+  --surface: #fcfaf5;
+  --primaryColor: var(--forest);
+  --secondaryColor: var(--sage);
+  --greyColor: var(--sandstone);
+  --normalFontSize: 0.9em;
+  --headingFontSize: 1em;
+  font-family: "Mulish", "Aptos", "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--ivory);
+  color: var(--charcoal);
 }
 
-
-*{
-  padding: 0;
+*, *::before, *::after { box-sizing: border-box; }
+html { min-width: 320px; background: var(--ivory); }
+body {
   margin: 0;
-  box-sizing: border-box;
-  outline: none;
-  list-style-type: none;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--ivory);
+  color: var(--charcoal);
+  font-family: "Mulish", "Aptos", "Segoe UI", sans-serif;
+}
+button, input, select, textarea { font: inherit; }
+button, [role="button"] { cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; }
+::selection { color: #fff; background: var(--forest); }
+
+:focus-visible {
+  outline: 3px solid var(--terracotta) !important;
+  outline-offset: 3px;
 }
 
-body{
-  background: #fefefe;
-  font-family:'Mulish';
+/* A warm, restrained translation of the legacy utility palette keeps every
+   existing route on-brand without changing component behavior. */
+[class~="bg-white"] { background-color: var(--surface) !important; }
+[class~="bg-gray-50"], [class~="bg-gray-100"] { background-color: var(--ivory) !important; }
+[class~="bg-gray-200"] { background-color: var(--sandstone) !important; }
+[class~="border-gray-100"], [class~="border-gray-200"], [class~="border-gray-300"] { border-color: var(--sandstone) !important; }
+[class~="divide-gray-200"] > :not([hidden]) ~ :not([hidden]) { border-color: var(--sandstone) !important; }
+[class~="text-gray-900"], [class~="text-gray-800"], [class~="text-gray-700"] { color: var(--charcoal) !important; }
+[class~="text-gray-600"], [class~="text-gray-500"], [class~="text-gray-400"] { color: var(--sage-ink) !important; }
+[class~="bg-indigo-50"], [class~="bg-indigo-100"], [class~="bg-purple-50"], [class~="bg-purple-100"] { background-color: #e7ede6 !important; }
+[class~="text-indigo-100"], [class~="text-indigo-200"], [class~="text-indigo-300"], [class~="text-indigo-400"], [class~="text-indigo-500"], [class~="text-indigo-600"], [class~="text-indigo-700"], [class~="text-indigo-800"], [class~="text-indigo-900"], [class~="text-purple-600"], [class~="text-purple-800"] { color: var(--forest) !important; }
+[class~="border-indigo-100"], [class~="border-indigo-200"] { border-color: #cbd6c9 !important; }
+[class~="bg-indigo-500"], [class~="bg-indigo-600"], [class~="bg-indigo-700"], [class~="bg-indigo-800"], [class~="bg-purple-600"], [class~="bg-purple-700"] { background-color: var(--forest) !important; }
+[class~="bg-blue-50"], [class~="bg-blue-100"] { background-color: #e7ede6 !important; }
+[class~="text-blue-600"], [class~="text-blue-700"], [class~="text-blue-800"] { color: var(--sage-ink) !important; }
+[class~="hover:bg-indigo-50"]:hover, [class~="hover:bg-indigo-100"]:hover, [class~="hover:bg-gray-50"]:hover, [class~="hover:bg-gray-100"]:hover { background-color: #e7ede6 !important; }
+[class~="hover:text-indigo-600"]:hover, [class~="hover:text-indigo-700"]:hover { color: var(--forest) !important; }
+[class~="focus:ring-indigo-500"]:focus { --tw-ring-color: var(--forest) !important; }
+
+/* Replace old promotional gradients with a confident, solid brand anchor. */
+[class*="from-indigo-"], [class*="from-purple-"], [class*="via-purple-"] {
+  background-image: none !important;
+  background-color: var(--forest) !important;
 }
-a{
-text-decoration: none;
-color: inherit;
+[class*="from-indigo-50"] { background-color: var(--ivory) !important; }
+[class*="from-yellow-"], [class*="from-amber-"] {
+  background-image: none !important;
+  background-color: var(--terracotta) !important;
 }
 
+/* Controls and cards share consistent tactile details across marketplace and admin views. */
+input:not([type="checkbox"]):not([type="radio"]), select, textarea {
+  color: var(--charcoal);
+  background-color: var(--surface);
+  border-color: var(--sandstone);
+  border-radius: 0.65rem;
+}
+input::placeholder, textarea::placeholder { color: #697568; opacity: 1; }
+button { transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease, box-shadow 160ms ease; }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
 }
+.animate-fadeIn { animation: fadeIn 0.4s ease-out; }
 
-.animate-fadeIn {
-  animation: fadeIn 0.4s ease-out;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
